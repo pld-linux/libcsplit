@@ -1,24 +1,23 @@
+# m4/libcerror.m4
+%define		libcerror_ver	20120425
 Summary:	Library to support cross-platform C split string functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje dzielenia łańcuchów w C
 Name:		libcsplit
-Version:	20150101
-Release:	2
+Version:	20190102
+Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	https://github.com/libyal/libcsplit/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	978a145663dd4eff9f9d74a02be3d649
-Patch0:		%{name}-system-libs.patch
+#Source0Download: https://github.com/libyal/libcsplit/releases
+Source0:	https://github.com/libyal/libcsplit/releases/download/%{version}/%{name}-beta-%{version}.tar.gz
+# Source0-md5:	099c4df3d879f4e72afdc93259d52ac7
 URL:		https://github.com/libyal/libcsplit/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-tools >= 0.18.1
-BuildRequires:	libcerror-devel >= 20120425
-BuildRequires:	libcstring-devel >= 20120425
+BuildRequires:	libcerror-devel >= %{libcerror_ver}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
-Requires:	libcerror >= 20120425
-Requires:	libcstring >= 20120425
+Requires:	libcerror >= %{libcerror_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,8 +33,7 @@ Summary:	Header files for libcsplit library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcsplit
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcerror-devel >= 20120425
-Requires:	libcstring-devel >= 20120425
+Requires:	libcerror-devel >= %{libcerror_ver}
 
 %description devel
 Header files for libcsplit library.
@@ -57,11 +55,9 @@ Statyczna biblioteka libcsplit.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gettextize}
-%{__sed} -i -e 's/ po\/Makefile.in//' configure.ac
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
