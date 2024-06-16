@@ -3,13 +3,13 @@
 Summary:	Library to support cross-platform C split string functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje dzielenia łańcuchów w C
 Name:		libcsplit
-Version:	20240110
+Version:	20240414
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/libyal/libcsplit/releases
 Source0:	https://github.com/libyal/libcsplit/releases/download/%{version}/%{name}-beta-%{version}.tar.gz
-# Source0-md5:	fb39f9c917e6dee00b4070480022e0a7
+# Source0-md5:	e164a7269fff849a57c763a0053a4924
 URL:		https://github.com/libyal/libcsplit/
 BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1.6
